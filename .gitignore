@@ -18,16 +18,17 @@
 Thumbs.db
 
 # Local uploads you may not want to version
-/uploads/
 /uploads/*
+!/uploads/.htaccess
+!/uploads/projects/
+/uploads/projects/*
+!/uploads/projects/.htaccess
 
 # Local setup markers
 .setup-complete
 
-# Local project docs / handoff files
+# Local project handoff and private spec files
 HANDOFF.md
-DEPLOYMENT.md
-README.md
 
 # Project context files (local working notes / specs)
 01-PROJECT-CONTEXT.pdf

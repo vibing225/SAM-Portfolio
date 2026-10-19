@@ -85,8 +85,11 @@ function renderFeaturedProjects() {
           .split(',')
           .map((item) => item.trim())
           .filter(Boolean)
-          .slice(0, 3)
-          .join(' • ');
+          .slice(0, 4);
+
+        const projectUrl = /^https?:\/\//i.test(project.project_url || '')
+          ? project.project_url
+          : 'projects/index.php';
 
         const normalizedImage = project.image_path
           ? (project.image_path.startsWith('http') ? project.image_path : '/' + String(project.image_path).replace(/^\/+/, ''))
@@ -104,7 +107,8 @@ function renderFeaturedProjects() {
             <span class="eyebrow">${escapeHtml(project.category || 'Projet')}</span>
             <h3 style="margin-top:0.5rem; margin-bottom:0.6rem;">${escapeHtml(project.title)}</h3>
             <p class="text-dim" style="margin-bottom:1rem;">${escapeHtml(project.short_description || 'Description à venir.')}</p>
-            <div class="mini-stat">${escapeHtml(techs)}</div>
+            <div class="technology-pills">${techs.map((technology) => `<span class="technology-pill">${escapeHtml(technology)}</span>`).join('')}</div>
+            <div class="project-card-actions"><a class="btn btn-primary" href="${escapeHtml(projectUrl)}"${/^https?:\/\//i.test(projectUrl) ? ' target="_blank" rel="noopener noreferrer"' : ''}>Voir le projet</a></div>
           </article>
         `;
       }).join('');

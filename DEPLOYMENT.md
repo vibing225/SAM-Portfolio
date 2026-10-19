@@ -32,7 +32,7 @@ Ensure the following core directories and files are present:
 ├── database/               <- Database schema (schema.sql, setup.php)
 ├── includes/               <- Common HTML headers/footers & Validator.php
 ├── css/                    <- Design tokens, base, components, and admin styles
-├── js/                     <- Dynamic data fetch, theme switcher, i18n, main scripts
+├── js/                     <- Dynamic data fetch, i18n, and main scripts
 └── uploads/                <- User uploaded images (projects, tech icons)
     ├── .htaccess           <- Prevents execution of scripts inside uploads
     ├── projects/
@@ -142,7 +142,7 @@ chmod 644 .htaccess
   - `GET /api/technologies.php` returns active technologies JSON.
 - [ ] **Admin Login (`/admin/login.php`)**: Authenticates successfully and redirects to `/admin/dashboard.php`.
 - [ ] **Image Uploads**: Creating a project with an image correctly saves the file in `uploads/projects/` and displays it.
-- [ ] **Theme & Language**: Dark/light mode switcher and French/English toggle work smoothly.
+- [ ] **Theme & Language**: Fixed dark theme and French/English toggle work smoothly.
 
 ---
 

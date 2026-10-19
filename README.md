@@ -1,66 +1,28 @@
-# Alpha Moussa Sow Portfolio — Frontend Skeleton
+# Alpha Moussa Sow — Portfolio
 
-Static frontend skeleton for Alpha Moussa Sow's portfolio, built to spec from
-`01-PROJECT-CONTEXT` and `02-BUILD-SPEC`. Built here for fast visual iteration;
-hand off to Cursor/Windsurf for the PHP + MySQL backend (Projects section +
-admin panel).
+Responsive French/English portfolio built with PHP, MySQL, HTML, CSS, and JavaScript. The site includes a dynamic projects page, an admin area for project and technology management, and a contact page with email and WhatsApp options.
 
-## Structure
+## Requirements
 
-```
-Sow-Alpha-Moussa/
-├── index.html            Home
-├── about.html             About
-├── skills.html            Skills
-├── experience.html        Experience / journey (timeline)
-├── contact.html            Contact (form is client-side only for now)
-├── projects/
-│   └── index.html         Projects — EMPTY STATE ONLY, no fabricated cards.
-│                          Wire this to the `projects` MySQL table next.
-├── admin/
-│   └── index.html         Placeholder shell only. Real auth/CRUD (PHP
-│                          sessions, CSRF, prepared statements) belongs here.
-├── css/
-│   ├── tokens.css         Design tokens — colors, type scale, spacing, motion
-│   ├── base.css           Reset + base element styles
-│   ├── components.css     Nav, buttons, cards, marquee, forms, timeline...
-│   └── pages.css          Page-specific layout (hero, about, skills grid...)
-├── js/
-│   ├── i18n.js             FR/EN dictionary + toggle, persists to localStorage
-│   └── main.js             Nav toggle, scroll-reveal, marquee loop, filter tabs
-└── assets/img/            Empty — placeholders in use everywhere for now
-```
+- PHP 8.1+ with PDO MySQL, fileinfo, mbstring, and sessions
+- MySQL 5.7+ or MariaDB 10.3+
+- Apache/XAMPP or compatible PHP hosting
 
-## What's already done
+## Local setup
 
-- Full design system implemented as CSS custom properties (`css/tokens.css`)
-- Bilingual FR/EN via `data-i18n` attributes, persisted in `localStorage`
-- Animated SVG "node/schema" hero graphic (draws in on load, nodes float)
-- Scroll-triggered reveals via `IntersectionObserver`
-- Infinite tech logo marquee (devicon CDN), pauses on hover
-- Accessible: semantic HTML, skip link, visible focus states, alt text,
-  labeled form fields, `prefers-reduced-motion` respected throughout
-- Responsive down to mobile (hamburger nav under 860px)
+1. Put the project in your PHP web root and install dependencies with Composer (`composer install`).
+2. Create a MySQL database and import `database/schema.sql`.
+3. Open the site through the local web server. The setup wizard creates the private `.env` configuration and admin account.
+4. Sign in at `/admin/login.php` to manage projects and technologies.
 
-## What's intentionally NOT built yet (per build sequence, steps 5–11)
+Never commit `.env`, uploaded media, local setup markers, or private project notes. `.env.example` contains placeholders only. Keep the upload-directory `.htaccess` files in place to prevent uploaded scripts from executing.
 
-- MySQL schema + PHP backend for the `projects` table
-- Public Projects page pulling real rows (currently a labeled empty state —
-  do not add hardcoded project cards; project content rules forbid
-  fabricated project data)
-- Admin panel auth (login, sessions, CSRF, rate-limiting) and CRUD
-- Contact form server-side handling (currently front-end validation only)
-- Image optimization / lazy loading / minification pass
-- Deployment to AlwaysData
+## Main routes
 
-## Notes for whoever continues in Cursor/Windsurf
+- `/` — portfolio home page
+- `/about.html`, `/skills.html`, `/experience.html`, `/contact.html` — portfolio sections
+- `/projects/index.php` — published projects and category filters
+- `/admin/login.php` — admin sign-in
+- `/api/projects.php` and `/api/technologies.php` — public JSON endpoints
 
-- Reuse `tokens.css` / `components.css` / `pages.css` as-is for anything new
-  (admin dashboard, project case-study view) — don't reinvent styles per page.
-- `projects/index.html` has an HTML comment marking exactly where the PHP loop
-  should render cards from the database.
-- `admin/index.html` has an HTML comment listing the admin spec (login,
-  dashboard, project form) from the build spec's Admin panel section.
-- Real project content (Amogemio, Brasserie Artemis, SamiSpa, Digital Menus,
-  Gestion_Immo) must come from inspecting the actual sites/repos — never
-  invent descriptions, metrics, or client names.
+The site uses a fixed dark theme, reduced-motion preferences, and a French/English language toggle.

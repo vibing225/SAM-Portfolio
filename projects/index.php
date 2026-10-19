@@ -103,17 +103,19 @@ try {
                                 <p class="text-dim" style="margin-bottom:1rem;"><?= htmlspecialchars($project['short_description'], ENT_QUOTES, 'UTF-8'); ?></p>
 
                                 <?php if (!empty($project['technologies'])): ?>
-                                    <div class="mini-stat" style="margin-bottom: 1rem;">
-                                        <?= htmlspecialchars(str_replace(',', ' • ', $project['technologies']), ENT_QUOTES, 'UTF-8'); ?>
+                                    <div class="technology-pills" style="margin-bottom: 1rem;">
+                                        <?php foreach (array_filter(array_map('trim', explode(',', $project['technologies']))) as $technology): ?>
+                                            <span class="technology-pill"><?= htmlspecialchars($technology, ENT_QUOTES, 'UTF-8'); ?></span>
+                                        <?php endforeach; ?>
                                     </div>
                                 <?php endif; ?>
 
                                 <div class="project-actions" style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:auto;">
                                     <?php if (!empty($project['project_url']) && $project['project_url'] !== '#'): ?>
-                                        <a class="btn btn-ghost" href="<?= htmlspecialchars($project['project_url'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noreferrer">Voir le site</a>
+                                        <a class="btn btn-primary" href="<?= htmlspecialchars($project['project_url'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noreferrer">Voir le site</a>
                                     <?php endif; ?>
                                     <?php if (!empty($project['github_url']) && $project['github_url'] !== '#'): ?>
-                                        <a class="btn btn-primary" href="<?= htmlspecialchars($project['github_url'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noreferrer">GitHub</a>
+                                        <a class="btn btn-ghost" href="<?= htmlspecialchars($project['github_url'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noreferrer">GitHub</a>
                                     <?php endif; ?>
                                 </div>
                             </article>
@@ -132,7 +134,6 @@ try {
     <div data-include="footer"></div>
 
     <script src="../js/i18n.js"></script>
-    <script src="../js/theme.js"></script>
     <script src="../js/includes.js"></script>
     <script src="../js/main.js"></script>
 </body>

@@ -30,12 +30,22 @@
         <h1 data-i18n="hero.title">Développeur Web &amp; Systèmes d'Information, formation MIAGE</h1>
         <p class="lead" data-i18n="hero.lead">Je conçois des solutions numériques concrètes — sites, applications et systèmes de gestion — à la croisée du développement web et de l'informatique de gestion.</p>
         <div class="btn-row">
-          <a class="btn btn-primary" href="projects/index.html" data-i18n="hero.cta.projects">Voir les projets</a>
+          <a class="btn btn-primary" href="projects/index.php" data-i18n="hero.cta.projects">Voir les projets</a>
           <a class="btn btn-ghost" href="contact.html" data-i18n="hero.cta.contact">Me contacter</a>
         </div>
       </div>
       <div class="hero-graphic" aria-hidden="true">
         <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="core-glow">
+              <stop offset="0" stop-color="var(--accent)" stop-opacity="0.38" />
+              <stop offset="1" stop-color="var(--accent)" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <circle class="hero-halo" cx="200" cy="200" r="150" />
+          <circle class="hero-orbit orbit-one" cx="200" cy="200" r="122" />
+          <circle class="hero-orbit orbit-two" cx="200" cy="200" r="94" />
+          <circle class="hero-core-glow" cx="200" cy="200" r="72" />
           <line class="edge" x1="200" y1="60" x2="80" y2="140" style="animation-delay:0.1s" />
           <line class="edge" x1="200" y1="60" x2="320" y2="120" style="animation-delay:0.25s" />
           <line class="edge" x1="80" y1="140" x2="140" y2="240" style="animation-delay:0.4s" />
@@ -54,6 +64,11 @@
           <circle class="node n4" cx="140" cy="240" r="8" />
           <circle class="node n6" cx="280" cy="260" r="7" />
           <circle class="node n2" cx="200" cy="340" r="9" />
+          <circle class="signal signal-one" cx="200" cy="60" r="3" />
+          <circle class="signal signal-two" cx="320" cy="120" r="2.5" />
+          <circle class="signal signal-three" cx="140" cy="240" r="2.5" />
+          <circle class="core-pulse" cx="200" cy="200" r="12" />
+          <circle class="core-dot" cx="200" cy="200" r="5" />
         </svg>
       </div>
     </div>
@@ -158,6 +173,7 @@
         <h3>Projets phares</h3>
       </div>
       <div id="featured-projects" class="card-grid"></div>
+      <div class="featured-projects-more"><a class="btn btn-ghost" href="projects/index.php">Voir tous les projets</a></div>
       <p class="footer-note reveal reveal-up" data-i18n="home.featured.note" style="margin-top:1.5rem;">Section connectée à la base de données — le contenu détaillé arrive avec les projets réels.</p>
     </div>
   </section>
@@ -179,7 +195,6 @@
 <div data-include="footer"></div>
 
 <script src="js/i18n.js"></script>
-<script src="js/theme.js"></script>
 <script src="js/includes.js"></script>
 <script src="js/main.js"></script>
 <script src="js/techs.js"></script>
